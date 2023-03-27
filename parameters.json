@@ -1,0 +1,13 @@
+{
+	"API_NAME": "drive",
+	"API_VERSION": "v3",
+	"SCOPES": [
+		"https://www.googleapis.com/auth/drive.metadata.readonly",
+		"https://www.googleapis.com/auth/drive.file",
+		"https://www.googleapis.com/auth/drive"
+	],
+	"CREDENTIALS_FILE": "client_secret_1059549673501-41b5ad42bvc382nd783br7omu004qtts.apps.googleusercontent.com.json",
+	"TOKEN": "token.json",
+	"name_file": "bitcoin.csv",
+	"folder_name": "BackUp-BitcoinCSV"
+}
