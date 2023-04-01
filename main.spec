@@ -5,10 +5,10 @@ block_cipher = None
 
 
 a = Analysis(
-    ['main.py'],
+    ['D:/Proyectos/GoogleDriveClientPython/main.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('D:/Proyectos/GoogleDriveClientPython/AuthGD.py', '.'), ('D:/Proyectos/GoogleDriveClientPython/bitcoin.csv', '.'), ('D:/Proyectos/GoogleDriveClientPython/bitcoin_history.csv', '.'), ('D:/Proyectos/GoogleDriveClientPython/client_secret_1059549673501-41b5ad42bvc382nd783br7omu004qtts.apps.googleusercontent.com.json', '.'), ('D:/Proyectos/GoogleDriveClientPython/GenerateCSV.py', '.'), ('D:/Proyectos/GoogleDriveClientPython/GoogleDriveClientPython.py', '.'), ('D:/Proyectos/GoogleDriveClientPython/main.py', '.'), ('D:/Proyectos/GoogleDriveClientPython/main.spec', '.'), ('D:/Proyectos/GoogleDriveClientPython/parameters.json', '.'), ('D:/Proyectos/GoogleDriveClientPython/requirements.txt', '.'), ('D:/Proyectos/GoogleDriveClientPython/textpad.png', '.'), ('D:/Proyectos/GoogleDriveClientPython/token.json', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -24,21 +24,28 @@ pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 exe = EXE(
     pyz,
     a.scripts,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
     [],
+    exclude_binaries=True,
     name='main',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
-    upx_exclude=[],
-    runtime_tmpdir=None,
     console=True,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['C:\\Users\\Adolf\\Downloads\\programacion-web.ico'],
+)
+coll = COLLECT(
+    exe,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    name='main',
 )

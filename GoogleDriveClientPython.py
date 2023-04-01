@@ -17,6 +17,7 @@ API_VERSION = data["API_VERSION"]
 SCOPES = data["SCOPES"]
 CREDENTIALS_FILE = data["CREDENTIALS_FILE"]
 TOKEN = data["TOKEN"]
+NAME_FILE = data["name_file"]
 
 class GD:
    
@@ -26,6 +27,13 @@ class GD:
             SCOPES,
             TOKEN,
             CREDENTIALS_FILE)
+
+        print(API_NAME)
+        print(API_VERSION)
+        print(SCOPES)
+        print(CREDENTIALS_FILE)
+        print(TOKEN)
+
         self.service = build(API_NAME, API_VERSION, credentials= self.creds)  
           
     def list_files(self):     
@@ -137,9 +145,10 @@ class GD:
             
             # Step 3: Update the file with the new content
             file_metadata = {'name': f'{new_filename}'}
-            media = MediaIoBaseUpload(io.BytesIO(b'New content'), mimetype=f'{mimetype}', chunksize=1024*1024, resumable=True)
+           
+            file_media = MediaFileUpload(NAME_FILE, resumable=True)          
 
-            updated_file = self.service.files().update(fileId=file_id, body=file_metadata, media_body=media, fields='id').execute()
+            updated_file = self.service.files().update(fileId=file_id, body=file_metadata, media_body=file_media, fields='id').execute()
             
             return "File updated: %s" % updated_file.get('id')
 
